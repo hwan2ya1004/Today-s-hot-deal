@@ -74,8 +74,7 @@
 <div id="product-list"></div>
 
 <script>
-    const apiUrl = 'https://api.adpick.co.kr/hotdeal?affiliateId=16d844';  // 실제 API URL 및 affiliateId 사용
-    const fetchInterval = 60000;  // 1분마다 갱신 (API 제한 준수)
+    const apiUrl = 'http://localhost:3000/api/hotdeal';  // 프록시 서버 URL
 
     async function fetchHotDeals() {
         try {
@@ -97,21 +96,19 @@
             const productElement = document.createElement('div');
             productElement.classList.add('product');
             productElement.innerHTML = `
-                <img src="\${product.image}" alt="\${product.name}">
-                <h3>\${product.name}</h3>
-                <p>할인 가격: \${product.sale_price}원</p>
-                <p>정가: \${product.normal_price}원</p>
-                <p>커미션: \${product.commission}%</p>
-                <a href="\${product.link}" target="_blank">구매하기</a>
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>할인 가격: ${product.sale_price}원</p>
+                <p>정가: ${product.normal_price}원</p>
+                <p>커미션: ${product.commission}%</p>
+                <a href="${product.link}" target="_blank">구매하기</a>
             `;
             productList.appendChild(productElement);
         });
     }
 
-    // 첫 API 호출 및 이후 1분마다 갱신
+    // 페이지 로드 시 API 호출
     fetchHotDeals();
-    setInterval(fetchHotDeals, fetchInterval);
-
 </script>
 
 </body>
