@@ -21,7 +21,7 @@ exports.handler = async function(event, context) {
     } catch (error) {
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: 'API 호출 실패' }),
+            body: JSON.stringify({ error: 'API 호출 실패: ' + error.message }),
         };
     }
 };
