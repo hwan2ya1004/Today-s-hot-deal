@@ -1,6 +1,5 @@
 [build]
-  publish = "/"  # HTML 파일이 위치하는 디렉터리 경로
-  functions = "netlify/functions"  # Functions 디렉터리 경로
+  functions = "netlify/functions"  # Functions 폴더 경로
 
 [[redirects]]
   from = "/*"
