@@ -1,9 +1,6 @@
 [build]
   publish = "public"
-  
-[[plugins]]
-  package = "@netlify/plugin-onbuild"
+  command = "npm run build"  # 'npm run build' 명령어로 빌드 시 실행
 
-  # 잘못된 구문: [[plugins.inputs]] -> 올바르게 수정
-  [plugins.inputs]  # 여기에서 inputs는 plain object여야 합니다.
-    onBuild = "node fetch-hotdeals.js"
+[functions]
+  directory = "netlify/functions"
