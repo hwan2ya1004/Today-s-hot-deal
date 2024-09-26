@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('node-fetch');  // node-fetch 모듈 불러오기
 
 exports.handler = async function(event, context) {
     const apiUrl = 'https://api.adpick.co.kr/hotdeal?affiliateId=16d844';
