@@ -1,8 +1,10 @@
-// 프론트엔드에서 로컬 서버의 프록시를 통해 요청
-fetch('http://localhost:3000/api/hotdeals')
+// Netlify Function을 호출하여 핫딜 목록 가져오기
+fetch('/.netlify/functions/hotdeals')
     .then(response => response.json())
     .then(data => {
         const container = document.getElementById('hotdeals-container');
+        
+        // 핫딜 데이터를 표시
         data.forEach(deal => {
             const hotdealDiv = document.createElement('div');
             hotdealDiv.className = 'hotdeal';
