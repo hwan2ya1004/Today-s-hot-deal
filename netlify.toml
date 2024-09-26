@@ -1,9 +1,9 @@
 [build]
   publish = "public"
-  functions = "netlify/functions"
-
+  
 [[plugins]]
   package = "@netlify/plugin-onbuild"
 
-[[plugins.inputs]]
-  onBuild = "node fetch-hotdeals.js"  # 빌드 시 API 데이터 가져오는 스크립트
+  # 잘못된 구문: [[plugins.inputs]] -> 올바르게 수정
+  [plugins.inputs]  # 여기에서 inputs는 plain object여야 합니다.
+    onBuild = "node fetch-hotdeals.js"
