@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "dependencies": {
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@netlify/plugin-onbuild": "^1.0.0"  // Netlify 플러그인 추가
+  },
+  "scripts": {
+    "build": "node fetch-hotdeals.js"  // 빌드 스크립트 (원할 경우 추가)
   }
 }
