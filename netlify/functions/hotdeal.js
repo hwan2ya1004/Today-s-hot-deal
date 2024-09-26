@@ -1,7 +1,7 @@
 const https = require('https');
 
 exports.handler = async function(event, context) {
-    const apiUrl = 'https://your-api-gateway-endpoint.amazonaws.com/dev/hotdeal';  // AWS API Gateway URL
+    const apiUrl = process.env.ADPICK_API_URL;  // Netlify 환경 변수로부터 API URL을 읽어옴
 
     return new Promise((resolve, reject) => {
         https.get(apiUrl, (res) => {
