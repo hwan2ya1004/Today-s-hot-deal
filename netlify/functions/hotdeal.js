@@ -1,37 +1,41 @@
-const fetch = require('node-fetch');  // node-fetch 2.x 버전 사용
+const https = require('https');
 
 exports.handler = async function(event, context) {
     const apiUrl = 'https://api.adpick.co.kr/hotdeal?affiliateId=16d844';
 
-    try {
-        // AdPick API 호출
-        const response = await fetch(apiUrl);
+    return new Promise((resolve, reject) => {
+        https.get(apiUrl, (res) => {
+            let data = '';
 
-        // HTTP 응답 상태 확인
-        if (!response.ok) {
-            throw new Error(`API 호출 오류: HTTP 상태 코드 ${response.status}`);
-        }
+            // 데이터가 수신될 때마다 호출
+            res.on('data', (chunk) => {
+                data += chunk;
+            });
 
-        // 응답 데이터를 JSON으로 변환
-        const data = await response.json();
-
-        // 성공적인 응답 반환
-        return {
-            statusCode: 200,
-            headers: {
-                "Access-Control-Allow-Origin": "*",  // CORS 문제 해결
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data),
-        };
-    } catch (error) {
-        // API 호출 또는 데이터 처리 중 오류 발생 시 처리
-        console.error('API 호출 중 오류 발생:', error.message);
-
-        // 오류 메시지와 함께 500 상태코드 반환
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'API 호출 실패: ' + error.message }),
-        };
-    }
+            // 응답 완료 시 호출
+            res.on('end', () => {
+                try {
+                    const parsedData = JSON.parse(data);
+                    resolve({
+                        statusCode: 200,
+                        headers: {
+                            "Access-Control-Allow-Origin": "*",  // CORS 문제 해결
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(parsedData),
+                    });
+                } catch (error) {
+                    reject({
+                        statusCode: 500,
+                        body: JSON.stringify({ error: 'API 응답 처리 실패: ' + error.message }),
+                    });
+                }
+            });
+        }).on('error', (error) => {
+            reject({
+                statusCode: 500,
+                body: JSON.stringify({ error: 'API 호출 실패: ' + error.message }),
+            });
+        });
+    });
 };
