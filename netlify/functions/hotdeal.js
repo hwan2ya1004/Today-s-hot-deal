@@ -7,7 +7,7 @@ exports.handler = async function(event, context) {
         // API 요청
         const response = await fetch(apiUrl);
         if (!response.ok) {
-            throw new Error(`HTTP 오류: ${response.status}`);
+            throw new Error(`HTTP 오류: ${response.status}`);  // HTTP 상태 코드 반환
         }
         const data = await response.json();
         
@@ -20,7 +20,7 @@ exports.handler = async function(event, context) {
             body: JSON.stringify(data),
         };
     } catch (error) {
-        console.error('API 호출 실패:', error);  // 오류 메시지를 콘솔에 출력하여 원인 확인
+        console.error('API 호출 실패:', error.message);  // 오류 메시지 출력
         return {
             statusCode: 500,
             body: JSON.stringify({ error: 'API 호출 실패: ' + error.message }),
