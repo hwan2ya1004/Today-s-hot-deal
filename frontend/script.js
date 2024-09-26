@@ -1,37 +1,23 @@
-fetch('http://localhost:3000/api/hotdeals')
+// ADPICK API를 호출하여 핫딜 목록 가져오기
+fetch('https://adpick.co.kr/apis/sdk_shopping_hotdeal.php?affid=16d844')
     .then(response => response.json())
     .then(data => {
         const container = document.getElementById('hotdeals-container');
+        
+        // 핫딜 데이터가 배열로 반환된다고 가정하고 각 핫딜을 표시
         data.forEach(deal => {
             const hotdealDiv = document.createElement('div');
             hotdealDiv.className = 'hotdeal';
 
             hotdealDiv.innerHTML = `
-                <h2>${deal.productName}</h2>
-                <p>Discount: ${deal.discountRate}%</p>
-                <a href="${deal.trackingUrl}" target="_blank" class="click-link" data-id="${deal.id}">Click to Buy</a>
-                <p>Clicks: <span id="click-count-${deal.id}">${deal.clickCount}</span></p>
+                <h2>${deal.title}</h2>
+                <img src="${deal.img}" alt="${deal.title}" width="200">
+                <p>Original Price: ${deal.org_price} KRW</p>
+                <p>Sale Price: ${deal.price} KRW</p>
+                <a href="${deal.product_url}" target="_blank" class="click-link">Click to Buy</a>
             `;
             
             container.appendChild(hotdealDiv);
         });
-
-        document.querySelectorAll('.click-link').forEach(link => {
-            link.addEventListener('click', (event) => {
-                const dealId = event.target.getAttribute('data-id');
-                trackClick(dealId);
-            });
-        });
-    });
-
-function trackClick(dealId) {
-    fetch(`http://localhost:3000/api/hotdeals/click/${dealId}`, {
-        method: 'POST'
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.message);
-        document.getElementById(`click-count-${dealId}`).textContent = data.clicks;
-    })
-    .catch(error => console.error('Error:', error));
-}
+    .catch(error => console.error('Error fetching hot deals:', error));
