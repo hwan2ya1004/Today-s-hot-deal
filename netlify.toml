@@ -1,6 +1,0 @@
-[build]
-  publish = "public"
-  command = "npm run build"  # 'npm run build' 명령어로 빌드 시 실행
-
-[functions]
-  directory = "netlify/functions"
