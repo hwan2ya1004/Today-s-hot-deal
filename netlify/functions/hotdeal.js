@@ -1,28 +1,39 @@
-const got = require('got');
+const https = require('https');
 
 exports.handler = async function(event, context) {
-    const apiUrl = 'https://api.adpick.co.kr/hotdeal?affiliateId=16d844';
+    const apiUrl = 'https://your-api-gateway-endpoint.amazonaws.com/dev/hotdeal';  // AWS API Gateway URL
 
-    try {
-        // Got을 사용하여 API 호출
-        const response = await got(apiUrl, { responseType: 'json' });
+    return new Promise((resolve, reject) => {
+        https.get(apiUrl, (res) => {
+            let data = '';
 
-        // 성공적인 응답 반환
-        return {
-            statusCode: 200,
-            headers: {
-                "Access-Control-Allow-Origin": "*",  // CORS 문제 해결
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(response.body),
-        };
-    } catch (error) {
-        console.error('API 호출 중 오류 발생:', error.message);
+            res.on('data', (chunk) => {
+                data += chunk;
+            });
 
-        // 오류 발생 시 500 상태 반환
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'API 호출 실패: ' + error.message }),
-        };
-    }
+            res.on('end', () => {
+                try {
+                    const parsedData = JSON.parse(data);
+                    resolve({
+                        statusCode: 200,
+                        headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(parsedData),
+                    });
+                } catch (error) {
+                    reject({
+                        statusCode: 500,
+                        body: JSON.stringify({ error: 'API 응답 처리 실패: ' + error.message }),
+                    });
+                }
+            });
+        }).on('error', (error) => {
+            reject({
+                statusCode: 500,
+                body: JSON.stringify({ error: 'API 호출 실패: ' + error.message }),
+            });
+        });
+    });
 };
