@@ -1,11 +1,11 @@
-const superagent = require('superagent');
+const got = require('got');
 
 exports.handler = async function(event, context) {
     const apiUrl = 'https://api.adpick.co.kr/hotdeal?affiliateId=16d844';
 
     try {
-        // Superagent를 사용하여 API 호출
-        const response = await superagent.get(apiUrl);
+        // Got을 사용하여 API 호출
+        const response = await got(apiUrl, { responseType: 'json' });
 
         // 성공적인 응답 반환
         return {
