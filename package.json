@@ -4,10 +4,7 @@
   "dependencies": {
     "node-fetch": "^2.6.1"
   },
-  "devDependencies": {
-    "@netlify/plugin-onbuild": "^1.0.0"
-  },
   "scripts": {
-    "build": "node fetch-hotdeals.js"
+    "build": "node fetch-hotdeals.js"  # 빌드 시 스크립트 실행
   }
 }
