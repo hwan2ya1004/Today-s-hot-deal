@@ -1,7 +1,9 @@
 [build]
-  functions = "netlify/functions"  # Functions 폴더 경로
+  publish = "public"
+  functions = "netlify/functions"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[plugins]]
+  package = "@netlify/plugin-onbuild"
+
+[[plugins.inputs]]
+  onBuild = "node fetch-hotdeals.js"  # 빌드 시 API 데이터 가져오는 스크립트
