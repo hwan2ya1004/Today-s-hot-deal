@@ -124,6 +124,26 @@ footer {
         margin: 10px 0;
     }
 
+    .hotdeal img {
+        max-width: 90%;  /* 모바일에서 이미지를 조금 더 작게 설정 */
+    }
+
+    .hotdeal h2 {
+        font-size: 1.2rem; /* 제목 폰트 크기 감소 */
+    }
+
+    .original-price {
+        font-size: 1rem; /* 정가 폰트 크기 감소 */
+    }
+
+    .sale-price {
+        font-size: 1.6rem; /* 할인가 폰트 크기 감소 */
+    }
+
+    .sale-price span {
+        font-size: 1.8rem; /* 할인가 강조 폰트 크기 감소 */
+    }
+
     header {
         font-size: 1.5rem;
         padding: 15px;
@@ -132,5 +152,41 @@ footer {
     footer {
         padding: 10px 0;
         font-size: 0.9rem;
+    }
+}
+
+/* 미디어 쿼리 - 작은 모바일 화면 (최대 너비 480px) */
+@media (max-width: 480px) {
+    .hotdeal {
+        width: 100%;  /* 작은 모바일 화면에서 카드가 전체 너비 차지 */
+        padding: 10px;
+    }
+
+    .hotdeal h2 {
+        font-size: 1rem; /* 더 작은 제목 폰트 크기 */
+    }
+
+    .original-price {
+        font-size: 0.9rem; /* 정가 폰트 크기 감소 */
+    }
+
+    .sale-price {
+        font-size: 1.4rem; /* 할인가 폰트 크기 감소 */
+    }
+
+    .sale-price span {
+        font-size: 1.6rem; /* 할인가 강조 폰트 크기 감소 */
+    }
+
+    .hotdeal img {
+        max-width: 85%;  /* 작은 화면에서 이미지 크기를 줄임 */
+    }
+
+    header {
+        font-size: 1.2rem; /* 작은 화면에서 헤더 폰트 크기 감소 */
+    }
+
+    footer {
+        font-size: 0.8rem;
     }
 }
