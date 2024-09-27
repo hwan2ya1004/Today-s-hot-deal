@@ -40,6 +40,12 @@ function fetchHotDeals() {
     }
 }
 
+// 가격을 한국식 표기로 변환하는 함수
+function formatPrice(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '원';
+}
+
+// 핫딜 데이터를 화면에 표시
 function renderHotDeals(deals) {
     const hotdealContainer = document.getElementById('hotdeals-container');
     hotdealContainer.innerHTML = ''; // 기존 내용 초기화
@@ -51,9 +57,8 @@ function renderHotDeals(deals) {
         hotdealDiv.innerHTML = `
             <h2>${deal.product_name}</h2>
             <img src="${deal.photo}" alt="${deal.product_name}" width="200">
-            <p>Original Price: ${deal.price_org} KRW</p>
-            <p>Sale Price: ${deal.price_sale} KRW</p>
-            <p>Commission: ${deal.commission}</p>
+            <p class="original-price">정가: ${formatPrice(deal.price_org)}</p>
+            <p class="sale-price">할인가: <span>${formatPrice(deal.price_sale)}</span></p>
             <a href="${deal.buyurl}" target="_blank" class="click-link">Click to Buy</a>
         `;
         
