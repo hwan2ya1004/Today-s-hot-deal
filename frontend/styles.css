@@ -57,23 +57,39 @@ main {
 }
 
 .hotdeal h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 10px;
     color: #ff4500;
+    font-weight: bold;
 }
 
-.hotdeal p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    color: #666;
+/* 가격 스타일 (정가) */
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
 }
 
+/* 가격 스타일 (할인가 강조) */
+.sale-price {
+    color: red;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sale-price span {
+    font-size: 2rem;
+}
+
+/* 버튼 스타일 */
 .hotdeal a {
     display: inline-block;
     margin-top: 10px;
     background-color: #ff4500;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
