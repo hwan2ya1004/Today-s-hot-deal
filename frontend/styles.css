@@ -16,17 +16,20 @@ header {
     background-color: #ff4500;
     color: white;
     display: flex;
-    justify-content: space-between; /* 로고와 제목을 좌우로 배치 */
-    align-items: center;
-    padding: 10px 20px;
+    flex-direction: column; /* 로고와 제목을 세로로 배치 */
+    align-items: center; /* 중앙 정렬 */
+    padding: 10px;
     font-size: 2rem;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 /* 서희연구소 로고 스타일 */
 .header-left {
-    margin-right: auto; /* 로고를 왼쪽으로 이동 */
+    position: absolute;
+    top: 10px;
+    left: 10px; /* 로고를 왼쪽 상단으로 이동 */
 }
 
 .logo-link {
@@ -143,18 +146,13 @@ footer {
 /* 미디어 쿼리 - 모바일 화면 */
 @media (max-width: 768px) {
     header {
-        flex-direction: row; /* 로고와 제목을 가로로 배치 */
         font-size: 1.5rem;
         padding: 10px;
     }
 
     .header-left {
-        flex-basis: auto; /* 로고 크기를 자동으로 조정 */
-    }
-
-    .header-left .logo-link {
-        font-size: 1rem;
-        margin-right: 20px;
+        top: 5px; /* 모바일에서는 로고의 위치를 위로 이동 */
+        left: 5px;
     }
 
     main {
@@ -179,8 +177,9 @@ footer {
         padding: 5px;
     }
 
-    .header-left .logo-link {
-        font-size: 0.9rem;
+    .header-left {
+        top: 5px;
+        left: 5px;
     }
 
     .hotdeal {
