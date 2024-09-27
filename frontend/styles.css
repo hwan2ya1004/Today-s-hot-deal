@@ -23,14 +23,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* 상대적 배치를 사용해 중앙 정렬 보장 */
 }
 
 .header-left {
-    flex-basis: 20%; /* 로고 공간 */
+    position: absolute;
+    left: 20px; /* 왼쪽에 고정된 위치 */
 }
 
 .header-center {
-    flex-basis: 60%; /* 중앙 타이틀 공간 */
+    flex-basis: 100%;
     text-align: center;
 }
 
