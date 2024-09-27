@@ -1,0 +1,97 @@
+
+/* Reset 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #ff4500;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 본문 스타일 */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 핫딜 카드 스타일 */
+.hotdeal {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 15px;
+    width: 280px;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.hotdeal:hover {
+    transform: scale(1.05);
+}
+
+.hotdeal img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.hotdeal h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ff4500;
+}
+
+.hotdeal p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.hotdeal a {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #ff4500;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.hotdeal a:hover {
+    background-color: #ff3000;
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 30px;
+}
