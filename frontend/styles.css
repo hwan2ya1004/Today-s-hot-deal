@@ -16,10 +16,9 @@ header {
     background-color: #ff4500;
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* 로고와 제목을 좌우로 배치 */
     align-items: center;
-    position: relative;
-    padding: 20px;
+    padding: 10px 20px;
     font-size: 2rem;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -27,13 +26,12 @@ header {
 
 /* 서희연구소 로고 스타일 */
 .header-left {
-    position: absolute;
-    left: 20px;
+    margin-right: auto; /* 로고를 왼쪽으로 이동 */
 }
 
 .logo-link {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-decoration: none;
     font-weight: bold;
 }
@@ -145,19 +143,18 @@ footer {
 /* 미디어 쿼리 - 모바일 화면 */
 @media (max-width: 768px) {
     header {
+        flex-direction: row; /* 로고와 제목을 가로로 배치 */
         font-size: 1.5rem;
         padding: 10px;
-        flex-direction: row; /* 로고와 제목을 가로로 배치 */
-        justify-content: center; /* 중앙 정렬 */
     }
 
     .header-left {
-        position: static; /* 모바일에서 로고의 절대 위치 해제 */
-        margin-right: auto; /* 로고를 왼쪽에 정렬 */
+        flex-basis: auto; /* 로고 크기를 자동으로 조정 */
     }
 
-    .logo-link {
-        font-size: 1.2rem;
+    .header-left .logo-link {
+        font-size: 1rem;
+        margin-right: 20px;
     }
 
     main {
@@ -180,17 +177,10 @@ footer {
     header {
         font-size: 1.2rem;
         padding: 5px;
-        flex-direction: row; /* 로고와 제목을 가로로 배치 */
-        justify-content: center;
     }
 
-    .header-left {
-        position: static; /* 모바일에서 로고의 절대 위치 해제 */
-        margin-right: auto; /* 로고를 왼쪽에 정렬 */
-    }
-
-    .logo-link {
-        font-size: 1rem;
+    .header-left .logo-link {
+        font-size: 0.9rem;
     }
 
     .hotdeal {
