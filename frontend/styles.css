@@ -1,4 +1,4 @@
-/* Reset 기본 스타일 초기화 */
+/* 기본 스타일 */
 * {
     margin: 0;
     padding: 0;
@@ -22,10 +22,10 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 본문 스타일 */
+/* 본문 스타일 (데스크탑에서 가로로 나열) */
 main {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* 가로로 넘치면 다음 줄로 */
     justify-content: center;
     padding: 20px;
     max-width: 1200px;
@@ -98,7 +98,7 @@ footer {
 /* 미디어 쿼리 - 모바일 화면 (최대 너비 768px) */
 @media (max-width: 768px) {
     main {
-        flex-direction: column;
+        flex-direction: column; /* 모바일에서는 세로로 */
         padding: 10px;
     }
 
