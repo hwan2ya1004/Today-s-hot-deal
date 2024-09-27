@@ -117,11 +117,13 @@ footer {
     main {
         flex-direction: column; /* 모바일에서는 세로로 */
         padding: 10px;
+        align-items: center;  /* 모바일에서 중앙 정렬 */
     }
 
     .hotdeal {
         width: 100%;  /* 모바일에서 카드가 전체 너비를 차지 */
         margin: 10px 0;
+        max-width: 400px; /* 모바일에서 적당한 크기로 제한 */
     }
 
     .hotdeal img {
@@ -160,6 +162,7 @@ footer {
     .hotdeal {
         width: 100%;  /* 작은 모바일 화면에서 카드가 전체 너비 차지 */
         padding: 10px;
+        max-width: 350px;  /* 작은 화면에서 카드 크기 제한 */
     }
 
     .hotdeal h2 {
