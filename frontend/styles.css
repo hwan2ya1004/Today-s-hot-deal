@@ -15,25 +15,26 @@ body {
 header {
     background-color: #ff4500;
     color: white;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     padding: 20px;
     font-size: 2rem;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
 }
 
+/* 서희연구소 로고 스타일 */
 .header-left {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .logo-link {
     color: white;
+    font-size: 1.2rem;
     text-decoration: none;
-    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -44,10 +45,10 @@ header {
 /* 본문 스타일 */
 main {
     display: flex;
-    flex-wrap: wrap;  /* 카드가 넘치면 다음 줄로 넘기기 */
-    justify-content: space-around;  /* 카드들을 고르게 분배 */
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding: 20px;
-    max-width: 1200px;  /* 본문 최대 너비 설정 */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -58,10 +59,10 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 15px;
     padding: 15px;
-    flex-basis: 30%;  /* 각 카드가 화면 너비의 30%를 차지하도록 설정 */
-    max-width: 300px;  /* 카드의 최대 너비 */
-    transition: transform 0.3s ease;
+    flex-basis: 30%;
+    max-width: 300px;
     text-align: center;
+    transition: transform 0.3s ease;
 }
 
 .hotdeal:hover {
@@ -77,20 +78,15 @@ main {
 
 .hotdeal h2 {
     font-size: 1.3rem;
-    margin-bottom: 10px;
     color: #ff4500;
     font-weight: bold;
 }
 
-/* 가격 스타일 (정가) */
 .original-price {
     text-decoration: line-through;
     color: #888;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
 }
 
-/* 가격 스타일 (할인가 강조) */
 .sale-price {
     color: red;
     font-size: 1.8rem;
@@ -98,11 +94,6 @@ main {
     margin-bottom: 10px;
 }
 
-.sale-price span {
-    font-size: 2rem;
-}
-
-/* 버튼 스타일 */
 .hotdeal a {
     display: inline-block;
     margin-top: 10px;
@@ -125,90 +116,19 @@ footer {
     color: white;
     text-align: center;
     padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    font-size: 0.9rem;
     margin-top: 30px;
 }
 
-/* 미디어 쿼리 - 모바일 화면 (최대 너비 768px) */
+/* 미디어 쿼리 - 모바일 화면 */
 @media (max-width: 768px) {
     main {
-        flex-direction: column; /* 모바일에서는 세로로 */
-        padding: 10px;
-        align-items: center;  /* 모바일에서 중앙 정렬 */
+        flex-direction: column;
+        align-items: center;
     }
-
     .hotdeal {
-        width: 100%;  /* 모바일에서 카드가 전체 너비를 차지 */
-        margin: 10px 0;
-        max-width: 400px; /* 모바일에서 적당한 크기로 제한 */
-    }
-
-    .hotdeal img {
-        max-width: 90%;  /* 모바일에서 이미지를 조금 더 작게 설정 */
-    }
-
-    .hotdeal h2 {
-        font-size: 1.2rem; /* 제목 폰트 크기 감소 */
-    }
-
-    .original-price {
-        font-size: 1rem; /* 정가 폰트 크기 감소 */
-    }
-
-    .sale-price {
-        font-size: 1.6rem; /* 할인가 폰트 크기 감소 */
-    }
-
-    .sale-price span {
-        font-size: 1.8rem; /* 할인가 강조 폰트 크기 감소 */
-    }
-
-    header {
-        font-size: 1.5rem;
-        padding: 15px;
-    }
-
-    footer {
-        padding: 10px 0;
-        font-size: 0.9rem;
+        width: 100%;
+        max-width: 400px;
     }
 }
 
-/* 미디어 쿼리 - 작은 모바일 화면 (최대 너비 480px) */
-@media (max-width: 480px) {
-    .hotdeal {
-        width: 100%;  /* 작은 모바일 화면에서 카드가 전체 너비 차지 */
-        padding: 10px;
-        max-width: 350px;  /* 작은 화면에서 카드 크기 제한 */
-    }
-
-    .hotdeal h2 {
-        font-size: 1rem; /* 더 작은 제목 폰트 크기 */
-    }
-
-    .original-price {
-        font-size: 0.9rem; /* 정가 폰트 크기 감소 */
-    }
-
-    .sale-price {
-        font-size: 1.4rem; /* 할인가 폰트 크기 감소 */
-    }
-
-    .sale-price span {
-        font-size: 1.6rem; /* 할인가 강조 폰트 크기 감소 */
-    }
-
-    .hotdeal img {
-        max-width: 85%;  /* 작은 화면에서 이미지 크기를 줄임 */
-    }
-
-    header {
-        font-size: 1.2rem; /* 작은 화면에서 헤더 폰트 크기 감소 */
-    }
-
-    footer {
-        font-size: 0.8rem;
-    }
-}
