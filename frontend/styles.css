@@ -23,12 +23,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* 상대적 배치를 사용해 중앙 정렬 보장 */
+    position: relative;
 }
 
 .header-left {
     position: absolute;
-    left: 20px; /* 왼쪽에 고정된 위치 */
+    left: 20px;
 }
 
 .header-center {
@@ -155,11 +155,13 @@ footer {
     }
 
     .header-left {
+        position: static;
         margin-bottom: 10px;
     }
 
     .header-center h1 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        text-align: center;
     }
 
     main {
