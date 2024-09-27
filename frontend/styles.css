@@ -22,12 +22,11 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 본문 스타일 (Flexbox 설정) */
+/* 본문 스타일 (카드가 가로로 나열되도록 Flexbox 설정) */
 main {
     display: flex;
-    flex-wrap: wrap; /* 가로로 넘치면 다음 줄로 이동 */
-    justify-content: center;
-    gap: 20px; /* 카드 사이에 간격 추가 */
+    flex-wrap: wrap; /* 화면 크기에 따라 다음 줄로 넘어가도록 설정 */
+    justify-content: space-between; /* 카드 사이에 공간을 분배 */
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -41,7 +40,7 @@ main {
     margin: 15px;
     padding: 15px;
     width: 280px;
-    min-width: 280px; /* 카드의 최소 너비를 설정 */
+    flex-grow: 1; /* 카드가 가로로 충분한 공간을 차지하게 함 */
     transition: transform 0.3s ease;
     text-align: center;
 }
