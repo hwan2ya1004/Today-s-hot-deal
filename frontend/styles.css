@@ -1,4 +1,3 @@
-
 /* Reset 기본 스타일 초기화 */
 * {
     margin: 0;
@@ -94,4 +93,27 @@ footer {
     bottom: 0;
     width: 100%;
     margin-top: 30px;
+}
+
+/* 미디어 쿼리 - 모바일 화면 (최대 너비 768px) */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .hotdeal {
+        width: 100%;  /* 모바일에서 카드가 전체 너비를 차지 */
+        margin: 10px 0;
+    }
+
+    header {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    footer {
+        padding: 10px 0;
+        font-size: 0.9rem;
+    }
 }
