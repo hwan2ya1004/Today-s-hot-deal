@@ -42,6 +42,28 @@ header {
     text-decoration: underline;
 }
 
+/* 핫딜 제품 소개 섹션 */
+.intro-section {
+    background-color: #fff7e6;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-section h2 {
+    font-size: 1.8rem;
+    color: #ff4500;
+    margin-bottom: 10px;
+}
+
+.intro-section p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
 /* 본문 스타일 */
 main {
     display: flex;
@@ -131,4 +153,3 @@ footer {
         max-width: 400px;
     }
 }
-
