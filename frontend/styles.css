@@ -16,6 +16,7 @@ header {
     background-color: #ff4500;
     color: white;
     display: flex;
+    flex-direction: column; /* 세로로 정렬 */
     justify-content: center;
     align-items: center;
     position: relative;
@@ -27,13 +28,12 @@ header {
 
 /* 서희연구소 로고 스타일 */
 .header-left {
-    position: absolute;
-    left: 20px;
+    margin-bottom: 10px; /* 로고와 타이틀 사이 간격 */
 }
 
 .logo-link {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     text-decoration: none;
     font-weight: bold;
 }
@@ -151,9 +151,9 @@ footer {
         justify-content: center; /* 중앙 정렬 */
     }
 
-    .header-left .logo-link {
-        font-size: 1rem;
-        margin-bottom: 10px;  /* 로고 아래에 여백 추가 */
+    .logo-link {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
     }
 
     main {
@@ -180,8 +180,8 @@ footer {
         justify-content: center;
     }
 
-    .header-left .logo-link {
-        font-size: 0.9rem;
+    .logo-link {
+        font-size: 1rem;
         margin-bottom: 10px;
     }
 
