@@ -1,10 +1,9 @@
-// Netlify Function을 호출하여 핫딜 목록 가져오기
 fetch('/.netlify/functions/hotdeals')
     .then(response => response.json())
     .then(data => {
+        console.log('API 데이터:', data); // 콘솔에 데이터 출력
+
         const container = document.getElementById('hotdeals-container');
-        
-        // 핫딜 데이터를 표시
         data.forEach(deal => {
             const hotdealDiv = document.createElement('div');
             hotdealDiv.className = 'hotdeal';
