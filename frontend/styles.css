@@ -26,7 +26,7 @@ header {
 main {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;  /* 카드들이 가로로 나열되도록 설정 */
+    justify-content: space-between; /* 카드들 사이에 균일한 간격 */
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -39,8 +39,9 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 15px;
     padding: 15px;
-    flex-basis: 280px;  /* 각 카드의 기본 너비를 고정 */
-    flex-grow: 0;
+    flex: 1 0 30%; /* 각 카드의 너비를 30%로 설정 */
+    max-width: 300px; /* 카드의 최대 너비 */
+    min-width: 280px; /* 카드의 최소 너비 */
     transition: transform 0.3s ease;
     text-align: center;
 }
