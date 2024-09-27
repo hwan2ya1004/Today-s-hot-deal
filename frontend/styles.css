@@ -25,12 +25,11 @@ header {
 /* 본문 스타일 */
 main {
     display: flex;
-    flex-wrap: wrap; /* 카드들이 줄 바꿈되도록 설정 */
-    justify-content: space-between; /* 카드들 사이에 균일한 간격 */
+    flex-wrap: wrap;  /* 카드가 넘치면 다음 줄로 넘기기 */
+    justify-content: space-around;  /* 카드들을 고르게 분배 */
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1200px;  /* 본문 최대 너비 설정 */
     margin: 0 auto;
-    gap: 20px; /* 카드 사이에 고정된 간격을 추가 */
 }
 
 /* 핫딜 카드 스타일 */
@@ -40,8 +39,8 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 15px;
     padding: 15px;
-    flex: 1 1 300px; /* 각 카드의 최소 너비를 300px로 설정하고 가로로 나열되도록 강제 */
-    max-width: 300px; /* 카드의 최대 너비를 제한 */
+    flex-basis: 30%;  /* 각 카드가 화면 너비의 30%를 차지하도록 설정 */
+    max-width: 300px;  /* 카드의 최대 너비 */
     transition: transform 0.3s ease;
     text-align: center;
 }
